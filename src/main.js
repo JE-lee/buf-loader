@@ -20,7 +20,7 @@ function base64DecToArr(sBase64, nBlockSize) {
     sB64Enc = sBase64.replace(/[^A-Za-z0-9\+\/]/g, ""),
     nInLen = sB64Enc.length,
     nOutLen = nBlockSize ? Math.ceil((nInLen * 3 + 1 >>> 2) / nBlockSize) * nBlockSize : nInLen * 3 + 1 >>> 2,
-    aBytes = new ArrayBuffer(nOutLen);
+    aBytes = new Uint8Array(nOutLen);
 
   for (let nMod3, nMod4, nUint24 = 0, nOutIdx = 0, nInIdx = 0; nInIdx < nInLen; nInIdx++) {
     nMod4 = nInIdx & 3;
